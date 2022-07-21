@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', (msg) => {
     if (msg.content === '/Countdown') {
-        msg.reply('pong');
+        msg.channel.send("Countdown started!");
     }
 });
 
