@@ -6,9 +6,9 @@ client.on('ready', () => {
     console.log("Bot logged in as " + client.user.tag);
 });
 
-client.on('message', () => {
-    if (message.content === '/Countdown') {
-        message.reply('pong');
+client.on('message', (msg) => {
+    if (msg.content === '/Countdown') {
+        msg.reply('pong');
     }
 });
 
