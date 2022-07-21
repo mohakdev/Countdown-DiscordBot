@@ -1,10 +1,10 @@
 //Important global variables
-const { Client, Intents, Collection, Guild } = require("discord.js");
+const { Client, Collection, Guild } = require("discord.js");
 const { REST } = require("@discordjs/rest");
 const { ROUTE } = require("discord-api-types/v9");
 const fs = require("fs");
 const { env } = require("process");
-const client = new Client({ Intents: ['GUILD_MESSAGES', 'GUILDS'] });
+const client = new Client({ intents: ['GUILD_MESSAGES', 'GUILDS'] });
 require("dotenv").config();
 // Command Handler
 const commandsFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
@@ -36,20 +36,20 @@ client.on('ready', () => {
                 console.log("Commands registered globally.");
             }
             else {
-                await rest.put(ROUTE.applicationCommand(clientId, process.env.ENV.GUILD_ID),
+                await rest.put(ROUTE.applicationCommand(clientId, process.env.ENV.GUILD_ID ),
                     {
                         body: commands
                     });
                 console.log("Commands registered locally.");
             }
         }
-        catch (error) {
+        catch(error) {
             if (error) {
                 console.log(error);
             }
-        }
+            }
     })
-});
+});s
 
 const Prefix = "$";
 
